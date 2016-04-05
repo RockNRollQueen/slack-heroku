@@ -14,7 +14,7 @@ class Index(object):
         if 'command' in form and 'text' in form and form.text.strip():
           web.header('Content-type', 'application/json')
           return json.dumps({"response_type": "in_channel", "text": "Slaps {} with large trout.".format(form.text)})
-        return form
+        return ""
 
 if __name__ == "__main__":
     app.run()
