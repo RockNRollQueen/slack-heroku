@@ -22,8 +22,8 @@ import cgi
 import sys
 
 
-    PORT = 8000
-    I = ""
+PORT = 8000
+I = ""
 
 
 class ServerHandler(SimpleHTTPServer.SimpleHTTPRequestHandler):
