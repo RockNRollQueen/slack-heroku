@@ -14,7 +14,7 @@ class Index(object):
         form = web.input(name="Nobody")
         greeting = "Hello, %s" % form.name
 
-        return render.index(greeting = greeting)
+        return greeting
 
 if __name__ == "__main__":
     app.run()
