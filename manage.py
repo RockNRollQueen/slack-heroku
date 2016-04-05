@@ -10,8 +10,9 @@ app = web.application(urls, globals())
 class Index(object):
     def GET(self):
         form = web.input()
-#        greeting = "Slaps %s with large trout" % form.name
         print form
+        if 'command' in form and 'text' in form and 'user_name' in form:
+          return "{} slaps {} with large trout".format(form.user_name, form.text)          
         return form
 
 if __name__ == "__main__":
