@@ -22,13 +22,6 @@ import cgi
 import sys
 
 
-if len(sys.argv) > 2:
-    PORT = int(sys.argv[2])
-    I = sys.argv[1]
-elif len(sys.argv) > 1:
-    PORT = int(sys.argv[1])
-    I = ""
-else:
     PORT = 8000
     I = ""
 
