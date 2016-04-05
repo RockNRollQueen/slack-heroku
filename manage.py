@@ -7,14 +7,12 @@ urls = (
 
 app = web.application(urls, globals())
 
-#render = web.template.render('templates/')
-
 class Index(object):
     def GET(self):
-        form = web.input(name="Nobody")
-        greeting = "Slaps %s with large trout" % form.name
-
-        return greeting
+        form = web.input()
+#        greeting = "Slaps %s with large trout" % form.name
+        print form
+        return form
 
 if __name__ == "__main__":
     app.run()
