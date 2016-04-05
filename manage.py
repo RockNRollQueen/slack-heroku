@@ -2,7 +2,7 @@ import web
 import json
 
 urls = (
-  '/slap'
+  '/slap', 'Index'
 )
 
 
