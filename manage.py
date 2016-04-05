@@ -12,7 +12,7 @@ app = web.application(urls, globals())
 class Index(object):
     def GET(self):
         form = web.input(name="Nobody")
-        greeting = "Hello, %s" % form.name
+        greeting = "Slaps %s with large trout" % form.name
 
         return greeting
 
