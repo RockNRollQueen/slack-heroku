@@ -8,7 +8,7 @@ urls = (
 
 client = "10543882263.32313872259"
 secret = "57a21accddf8106e47cece4e9e6b3b52"
-scope = "channels%3Aread+chat%3Awrite%3Abot"
+scope = "channels%3Aread+chat%3Awrite%3Abot+commands+bot"
 
 app = web.application(urls, globals())
 
