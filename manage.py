@@ -6,17 +6,22 @@ urls = (
   '/auth', 'Index'
 )
 
+client = "10543882263.32313872259"
+secret = "57a21accddf8106e47cece4e9e6b3b52"
+scope = "channels%3Aread+chat%3Awrite%3Abot"
 
 app = web.application(urls, globals())
 
 class Index(object):
     def GET(self):
         form = web.input()
-        if 'code' in form:
-          raise web.seeother("https://slack.com/oauth/authorize?client_id=10543882263.32313872259&scope=channels%3Aread+chat%3Awrite%3Abot")
+        if 'code' in form and form.code == client:
+          raise web.seeother("https://slack.com/oauth/authorize?client_id={}&scope={}".format(client, scope))
+        if 'code' in form and form.code != client:
+          raise web.seeother("https://slack.com/api/oauth.access?client_id={}&client_secret={}&code={}".format(client, scope, form.code))
         if 'error' in form:
           return "Canceled"
-        return "Use as '/slap username'"
+        return "Auth must be work from 'Add button'"
 
     def POST(self):
         form = web.input()
