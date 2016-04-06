@@ -1,8 +1,8 @@
 {
-  "name": "Slack tester",
-  "description": "Need Slack server.",
+  "name": "Slack slap command",
+  "description": "Service to slap anyone in Slack.",
   "image": "heroku/python",
-  "repository": "",
+  "repository": "https://github.com/MonkAlex/slack-heroku",
   "keywords": ["python", "slack" ],
   "addons": [ "" ]
 }
