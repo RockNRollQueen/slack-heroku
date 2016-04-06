@@ -11,6 +11,8 @@ app = web.application(urls, globals())
 
 class Index(object):
     def POST(self):
+        print self
+        print web
         form = web.input()
         if 'command' in form and 'text' in form and form.text.strip():
           web.header('Content-type', 'application/json')
