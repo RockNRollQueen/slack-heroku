@@ -18,7 +18,7 @@ class Index(object):
         if 'code' in form and form.code == client:
           raise web.seeother("https://slack.com/oauth/authorize?client_id={}&scope={}".format(client, scope))
         if 'code' in form and form.code != client:
-          raise web.seeother("https://slack.com/api/oauth.access?client_id={}&client_secret={}&code={}".format(client, scope, form.code))
+          raise web.seeother("https://slack.com/api/oauth.access?client_id={}&client_secret={}&code={}".format(client, secret, form.code))
         if 'error' in form:
           return "Canceled"
         return "Auth must be work from 'Add button'"
