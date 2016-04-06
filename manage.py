@@ -2,7 +2,8 @@ import web
 import json
 
 urls = (
-  '/slap', 'Index'
+  '/slap', 'Index',
+  '/auth', 'Index'
 )
 
 
