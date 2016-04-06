@@ -1,5 +1,6 @@
 import web
 import json
+import urllib
 
 urls = (
   '/slap', 'Index',
@@ -8,7 +9,7 @@ urls = (
 
 client = "10543882263.32313872259"
 secret = "57a21accddf8106e47cece4e9e6b3b52"
-scope = "channels%3Aread+chat%3Awrite%3Abot+commands+bot"
+scope = "channels%3Aread+chat%3Awrite%3Abot"
 
 app = web.application(urls, globals())
 
@@ -18,8 +19,9 @@ class Index(object):
         if 'code' in form and form.code == client:
           raise web.seeother("https://slack.com/oauth/authorize?client_id={}&scope={}".format(client, scope))
         if 'code' in form and form.code != client:
+          # must save token from url #
+          urllib.urlopen("https://slack.com/api/oauth.access?client_id={}&client_secret={}&code={}".format(client, secret, form.code))
           return "Installed"
-#          raise web.seeother("https://slack.com/api/oauth.access?client_id={}&client_secret={}&code={}".format(client, secret, form.code))
         if 'error' in form:
           return "Canceled"
         return "Auth must be work from 'Add button'"
