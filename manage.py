@@ -30,7 +30,10 @@ class Index(object):
         form = web.input()
         if 'command' in form and 'text' in form and form.text.strip():
           web.header('Content-type', 'application/json')
-          return json.dumps({"response_type": "in_channel", "text": "Slaps {} around a bit with a large trout".format(form.text)})
+          if form.text == "Kami-sama" or form.text == "@Kami-sama":
+            return json.dumps({"response_type": "in_channel", "text": "Dont slap me!"})
+          else:
+            return json.dumps({"response_type": "in_channel", "text": "Slaps {} around a bit with a large trout".format(form.text)})
         return "Use as '/slap username'"
 
 if __name__ == "__main__":
